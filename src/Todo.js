@@ -53,15 +53,17 @@ export default function Todo(props) {
                 <EditTodo editTodo={editTodo} addEditedTodo={addEditedTodo} defaultText={todoState.text} />
     
                 :
-                    <div className="d-flex justify-content-between align-items-center shadow-sm border-start border-2 rounded p-3 mt-3">
+                    <div className="d-flex justify-content-between flex-column gap-4 align-align-items-center shadow-sm border-start border-2 rounded p-3 mt-3">
                         <div>
+                        <p className="fw-lighter "><small className="fs-5 text-black text-opacity-25">{todoState.date}</small></p>
+                        
                         {(!todoState.isDone) ?
                             <a style={linkStyle} onClick={checkTodo} class="text-success text-decoration-none me-3" type="checkbox" id={todoState.text}>Do</a> 
                             : 
                             <a style={linkStyle} onClick={checkTodo} class="text-danger text-decoration-none  me-3" type="checkbox" id={todoState.text}>unDo</a> 
                         }
                         <label class="form-check-label" for={todoState.text}>
-                            {todoState.text}
+                            {todoState.text} 
                         </label>
                         </div>        
                         <div>                           

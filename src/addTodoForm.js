@@ -18,11 +18,14 @@ export default function Addtodoform(props) {
     const submitHandler = (event) => {
         event.preventDefault();
         if(inputText){
-        const todo = { id:Date.now() , text : inputText , isDone:false }
-    
-        addToList( prevState => [...prevState , todo] )
-    
-        setInputText('');
+            const today = new Date()
+            const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+            const todo = { id:Date.now() , text : inputText , isDone:false , date:date }
+
+            addToList( prevState => [...prevState , todo] )
+
+            setInputText('');
         }
     }
 

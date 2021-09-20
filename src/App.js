@@ -68,7 +68,7 @@ function App() {
           
           {
             (filterTodo.length>0) 
-            ? <div className="text-center mt-5">      
+            ? <div className="text-center my-5">      
                 <a onClick={deleteAllTodos} role='button' className="btn btn-outline-danger mt-3">Clean Up</a>
               </div>
             : null
