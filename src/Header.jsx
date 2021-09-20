@@ -1,13 +1,21 @@
 export default function Header() {
     
+    let titleStyle ={
+        border:'none',
+        outline:'none',
+        background:'transparent',
+        fontWeight:'300',
+        fontSize:'1.4rem'
+    }
+
     return (
         <>
             <header>
                 <div className="navbar navbar-light shadow-sm">
                     <div className="container d-flex justify-content-between">
-                        <a href="#" className="navbar-brand">
+                        <button href="#" className="navbar-brand" style={titleStyle}>
                         <strong>Todo App</strong>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </header>

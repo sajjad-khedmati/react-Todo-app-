@@ -11,24 +11,26 @@ function App() {
 
   const [ToDos , setTodos] = useState( [ ] )
   const [status , setStatus] = useState ( false )
-  
+
   useEffect( () => {
-    if (ToDos.length >0) {
-        localStorage.setItem( 'todos' , JSON.stringify(ToDos) )
-    }else{
-         const todos = JSON.parse(localStorage.getItem('todos'));
-         if(todos)
-            setTodos(prevState => [...prevState , ...todos])
+    console.log('runed');
+    if (ToDos.length > 0) {
+        localStorage.setItem( 'todos' , JSON.stringify(ToDos) );
+    }else if(localStorage.getItem('todos')){
+        const todos = JSON.parse(localStorage.getItem('todos'));
+        setTodos(prevState => [...prevState , ...todos]);
     }
-  } )
+  } ,[ToDos])
 
   const deleteAllTodos = () => {
-      setTodos( [ ] )
+      setTodos([ ])
       localStorage.removeItem('todos');
   }
 
   const filterTodo = ToDos.filter(item => item.isDone === status);
   
+  const cDate = new Date();
+  const date = cDate.getFullYear()+'-'+(cDate.getMonth()+1)+'-'+cDate.getDate();
   return (
     <>
         <Header />
@@ -43,6 +45,8 @@ function App() {
                 <div className="col col-sm-10 col-md-8 col-lg-6 col-xl-4">
                   <Addtodoform todos={ToDos} addToList={setTodos}/>
                 </div>
+
+                <div className="text-black text-opacity-50">today is {date}</div>
 
             </div>
           </section>
@@ -69,7 +73,7 @@ function App() {
           {
             (filterTodo.length>0) 
             ? <div className="text-center my-5">      
-                <a onClick={deleteAllTodos} role='button' className="btn btn-outline-danger mt-3">Clean Up</a>
+                <button onClick={deleteAllTodos}  className="btn btn-outline-danger mt-3">Clean Up</button>
               </div>
             : null
          }
