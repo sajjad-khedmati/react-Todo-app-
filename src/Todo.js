@@ -6,8 +6,7 @@ export default function Todo(props) {
 
     const [editStatus , setEditStatus] = useState(false);
     const { todoState , setTodoState , todoList} = props;
-    
-    
+
     // controlling on Show or Hide Edit form 
     const editTodo = () => {
         setEditStatus(!editStatus)
@@ -51,7 +50,7 @@ export default function Todo(props) {
             {
                 (editStatus) ? 
     
-                <EditTodo editTodo={editTodo} addEditedTodo={addEditedTodo}/>
+                <EditTodo editTodo={editTodo} addEditedTodo={addEditedTodo} defaultText={todoState.text} />
     
                 :
                     <div className="d-flex justify-content-between align-items-center shadow-sm border-start border-2 rounded p-3 mt-3">
