@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -12,6 +12,21 @@ function App() {
   const [ToDos , setTodos] = useState( [ ] )
   const [status , setStatus] = useState ( false )
   
+  useEffect( () => {
+    if (ToDos.length >0) {
+        localStorage.setItem( 'todos' , JSON.stringify(ToDos) )
+    }else{
+         const todos = JSON.parse(localStorage.getItem('todos'));
+         if(todos)
+            setTodos(prevState => [...prevState , ...todos])
+    }
+  } )
+
+  const deleteAllTodos = () => {
+      setTodos( [ ] )
+      localStorage.removeItem('todos');
+  }
+
   const filterTodo = ToDos.filter(item => item.isDone === status);
   
   return (
@@ -50,7 +65,15 @@ function App() {
               </div>
             </div>
           </section>
-
+          
+          {
+            (filterTodo.length>0) 
+            ? <div className="text-center mt-5">      
+                <a onClick={deleteAllTodos} role='button' className="btn btn-outline-danger mt-3">Clean Up</a>
+              </div>
+            : null
+         }
+          
         </main>
 
 
