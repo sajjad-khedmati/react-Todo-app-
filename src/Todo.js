@@ -61,9 +61,9 @@ export default function Todo(props) {
                         <p className="fw-lighter "><small className="fs-5 text-black text-opacity-25">{todoState.date}</small></p>
                         
                         {(!todoState.isDone) ?
-                            <button style={linkStyle} onClick={checkTodo} class="text-success text-decoration-none me-3" type="checkbox" id={todoState.text}>Do</button> 
+                            <button  onClick={checkTodo} class="btn btn-sm btn-outline-success me-2 " type="checkbox" id={todoState.text}>Do</button> 
                             : 
-                            <button style={linkStyle} onClick={checkTodo} class="text-danger text-decoration-none  me-3" type="checkbox" id={todoState.text}>unDo</button> 
+                            <button  onClick={checkTodo} class="btn btn-sm btn-outline-warning  me-3" type="checkbox" id={todoState.text}>unDo</button> 
                         }
                         <label class="form-check-label" for={todoState.text}>
                             {todoState.text} 
