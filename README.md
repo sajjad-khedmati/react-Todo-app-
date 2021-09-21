@@ -1,3 +1,10 @@
+this is a simple react todo applications with partitions todos ,
+edit todos and delete todos (responsive )
+
+( with Save in Local Storage )
+
+----------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
