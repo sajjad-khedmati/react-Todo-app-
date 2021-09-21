@@ -7,9 +7,7 @@ edit todos and delete todos (responsive )
 
 Screenshots:
 
-![plot](./Screenshot.png)
-![plot](./Screenshot (2).png)
-
+![plot](./S1.png)
 -----------------------------------------------------
 
 # Getting Started with Create React App
