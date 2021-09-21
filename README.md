@@ -5,6 +5,13 @@ edit todos and delete todos (responsive )
 
 ----------------------------------------------------
 
+Screenshots:
+
+![plot](./Screenshot.png)
+![plot](./Screenshot (2).png)
+
+-----------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
