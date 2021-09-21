@@ -12,8 +12,14 @@ function App() {
   const [ToDos , setTodos] = useState( [ ] )
   const [status , setStatus] = useState ( false )
 
+  useEffect( ()=>{
+    if(!localStorage.getItem('todos')){
+      console.log('created');
+      localStorage.setItem('todos' , [ ]);
+    }
+  } , [] )
+
   useEffect( () => {
-    console.log('runed');
     if (ToDos.length > 0) {
         localStorage.setItem( 'todos' , JSON.stringify(ToDos) );
     }else if(localStorage.getItem('todos')){
