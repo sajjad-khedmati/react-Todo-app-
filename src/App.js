@@ -12,19 +12,20 @@ function App() {
   const [ToDos , setTodos] = useState( [ ] )
   const [status , setStatus] = useState ( false )
 
+  useEffect( ()=>{
+        const todos = JSON.parse(window.localStorage.getItem('todos'))
+        todos ? setTodos(prevState => [...prevState , ...todos])
+              : window.localStorage.setItem('todos' , [ ] )
+  } , [] )
+
+
   useEffect( () => {
-    console.log('runed');
-    if (ToDos.length > 0) {
-        localStorage.setItem( 'todos' , JSON.stringify(ToDos) );
-    }else if(localStorage.getItem('todos')){
-        const todos = JSON.parse(localStorage.getItem('todos'));
-        setTodos(prevState => [...prevState , ...todos]);
-    }
+      window.localStorage.setItem( 'todos' , JSON.stringify(ToDos) );
   } ,[ToDos])
 
   const deleteAllTodos = () => {
       setTodos([ ])
-      localStorage.removeItem('todos');
+      window.localStorage.removeItem('todos');
   }
 
   const filterTodo = ToDos.filter(item => item.isDone === status);
